@@ -11,11 +11,7 @@
 
 把NRF24L01_Check()检测NRF24L01是否在位的程序放在了NRF24L01_TX_Mode()设置为发送模式之后。
 
-问题分析：
-
-NRF24L01_Check() 代码：
-
-123456789101112u8 NRF24L01_Check(void">
+问题分析：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="report-2015-09-06">
 <meta property="og:url" content="http://yoursite.com/2015/09/06/report-2015-09-06/index.html">
@@ -26,12 +22,10 @@ NRF24L01_Check() 代码：
 
 把NRF24L01_Check()检测NRF24L01是否在位的程序放在了NRF24L01_TX_Mode()设置为发送模式之后。
 
-问题分析：
-
-NRF24L01_Check() 代码：
-
-123456789101112u8 NRF24L01_Check(void">
-<meta property="og:updated_time" content="2015-09-06T03:03:20.978Z">
+问题分析：">
+<meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/warning.png">
+<meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/elseif.png">
+<meta property="og:updated_time" content="2015-09-08T08:42:11.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="report-2015-09-06">
 <meta name="twitter:description" content="报告
@@ -40,11 +34,7 @@ NRF24L01_Check() 代码：
 
 把NRF24L01_Check()检测NRF24L01是否在位的程序放在了NRF24L01_TX_Mode()设置为发送模式之后。
 
-问题分析：
-
-NRF24L01_Check() 代码：
-
-123456789101112u8 NRF24L01_Check(void">
+问题分析：">
   
     <link rel="alternative" href="/atom.xml" title="kenziD" type="application/atom+xml">
   
@@ -119,6 +109,7 @@ NRF24L01_Check() 代码：
 <p>把NRF24L01_Check()检测NRF24L01是否在位的程序放在了NRF24L01_TX_Mode()设置为发送模式之后。</p>
 </blockquote>
 <p>问题分析：</p>
+<a id="more"></a>
 <ul>
 <li>NRF24L01_Check() 代码：</li>
 </ul>
@@ -131,11 +122,27 @@ NRF24L01_Check() 代码：
 <li>正确的主函数</li>
 </ul>
 <figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">while <span class="params">(NRF24L01_Check<span class="params">()</span>)</span><span class="comment">//如果这句放在设置发送模式的后面，就会把用来测试的发送地址设为真正的发送地址，覆盖掉正确的发送地址。从而导致通信失败。    </span></span><br><span class="line">&#123;</span><br><span class="line">    LED2_ON;</span><br><span class="line">    LED1_OFF;</span><br><span class="line">    printf<span class="params">(<span class="string">"no"</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line">NRF24L01_TX_Mode<span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="2015-09-08">2015-09-08</h2><p>今天遭遇了一个神奇的bug：</p>
+<p>一个简单的按键扫描程序，就俩键。</p>
+<p>逻辑是：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">u8 <span class="title">key_scan</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(有键按下：按键<span class="number">1</span>按下||按键<span class="number">2</span>按下)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(按键<span class="number">1</span>按下)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(按键<span class="number">2</span>按下)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">//无键按下</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在主程序中：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">key =</span> key_scan();</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">key =</span>= <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    do a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">key =</span>= <span class="number">2</span>)</span><br><span class="line">&#123;</span><br><span class="line">    do b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>表面上看没错误，实际有一个很明显的漏洞：当if……else if…… 不包括所有的条件在内，也就是说有可能会出现条件不符合if(……），也不符合else if(……）的情况，这时候函数就不知道该返回什么值了。就隐藏了一个潜在的无用返回值，很有可能影响正常的程序。比如这个无用返回值是1，这样主程序会误认为按下了按键1，执行了a。</p>
+<p>事实也确实是如此：<br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/warning.png" alt="warning"><br>它有一个无返回值的警告。然而我没在意，但程序运行时出现这样的情况：</p>
+<p>实例描述：<br>按键扫描函数：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">u8 <span class="title">KEY_scan</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(MODE_KEY==<span class="number">0</span>||FUN_KEY==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        delay_ms(<span class="number">10</span>);</span><br><span class="line">        <span class="keyword">if</span>(MODE_KEY==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(FUN_KEY==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>主函数：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MODE_KEY_DOWN 1</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> FUN_KEY_DOWN 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        key = KEY_scan();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(key&gt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (key==MODE_KEY_DOWN)<span class="comment">//按下MODE键</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"MODE_KEY\n"</span>);<span class="comment">//打印MODE_KEY</span></span><br><span class="line">                key=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (key==FUN_KEY_DOWN)<span class="comment">//按下FUN键</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"FUN_KEY\n"</span>);<span class="comment">//打印FUN_KEY</span></span><br><span class="line">                key=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xk7fp.com1.z0.glb.clouddn.com/elseif.png" alt="end1"></p>
+<blockquote>
+<p>运行结果：<br>当我按下FUN键后，会莫名出现一个MODE键按下的对应打印。<br>debug发现，当按下FUN键后，key值变为2，当松开的一瞬间，突然有一个key=1的值出现，导致程序执行了打印MODE_KEY，但是程序并没有执行到if(MODE_KEY==0)这句判断语句内，但还是返回了一个1值。这个就是垃圾返回值。</p>
+</blockquote>
+<p>把程序修改成了:<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">u8 <span class="title">KEY_scan</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> u8 key_up = <span class="number">0</span>;   </span><br><span class="line">    <span class="keyword">if</span>(MODE_KEY==<span class="number">0</span>||FUN_KEY==<span class="number">0</span>)</span><br><span class="line">    &#123;       </span><br><span class="line">        delay_ms(<span class="number">10</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(MODE_KEY==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(FUN_KEY==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//补全了情况</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>后运行正常，也没有警告。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="cie7x08jg00034cnm9x9f3f9w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="cieb3tagd0003w8nmr9futhmi" class="article-share-link">Share</a>
       
       
     </footer>

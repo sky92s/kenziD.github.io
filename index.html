@@ -90,23 +90,15 @@
 <p>把NRF24L01_Check()检测NRF24L01是否在位的程序放在了NRF24L01_TX_Mode()设置为发送模式之后。</p>
 </blockquote>
 <p>问题分析：</p>
-<ul>
-<li>NRF24L01_Check() 代码：</li>
-</ul>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">u8 NRF24L01_Check<span class="params">(void)</span></span><br><span class="line">&#123;</span><br><span class="line">    u8 buf[<span class="number">5</span>] = &#123;<span class="number">0</span>XA5, <span class="number">0</span>XA5, <span class="number">0</span>XA5, <span class="number">0</span>XA5, <span class="number">0</span>XA5&#125;;</span><br><span class="line">    u8 i;</span><br><span class="line">    SPI2_SetSpeed<span class="params">(S<span class="literal">PI</span>_BaudRatePrescaler_4)</span>; </span><br><span class="line">    NRF24L01_Write_Buf<span class="params">(WRITE_REG_NRF + TX_ADDR, buf, <span class="number">5</span>)</span>;<span class="comment">//这里设置发送地址为0XA5 </span></span><br><span class="line">    NRF24L01_Read_Buf<span class="params">(TX_ADDR, buf, <span class="number">5</span>)</span>; </span><br><span class="line">    <span class="keyword">for</span> <span class="params">(i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><span class="keyword">if</span> <span class="params">(buf[i] != <span class="number">0</span>XA5)</span>break;</span><br><span class="line">    <span class="keyword">if</span> <span class="params">(i != <span class="number">5</span>)</span>return <span class="number">1</span>; </span><br><span class="line">    return <span class="number">0</span>;        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>NRF24L01_TX_Mode()</li>
-</ul>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const u8 TX_ADDRESS[TX_ADR_WIDTH] = &#123;<span class="number">0</span>x34, <span class="number">0</span>x43, <span class="number">0</span>x10, <span class="number">0</span>x10, <span class="number">0</span>x01&#125;; <span class="comment">//发送地址</span></span><br><span class="line">const u8 RX_ADDRESS[RX_ADR_WIDTH] = &#123;<span class="number">0</span>x34, <span class="number">0</span>x43, <span class="number">0</span>x10, <span class="number">0</span>x10, <span class="number">0</span>x01&#125;; <span class="comment">//发送地址</span></span><br><span class="line">void NRF24L01_TX_Mode<span class="params">(void)</span></span><br><span class="line">&#123;</span><br><span class="line">    NRF24L01_CE = <span class="number">0</span>;</span><br><span class="line">    NRF24L01_Write_Buf<span class="params">(WRITE_REG_NRF + TX_ADDR, <span class="params">(u8*)</span>TX_ADDRESS, TX_ADR_WIDTH)</span>;<span class="comment">//这里设置发送地址为正确的地址。只有发送地址和接收地址相配对，才能通信成功。 </span></span><br><span class="line">    NRF24L01_Write_Buf<span class="params">(WRITE_REG_NRF + RX_ADDR_P0, <span class="params">(u8*)</span>RX_ADDRESS, RX_ADR_WIDTH)</span>; </span><br><span class="line">    NRF24L01_Write_Reg<span class="params">(WRITE_REG_NRF + EN_AA, <span class="number">0</span>x01)</span>;  </span><br><span class="line">    NRF24L01_Write_Reg<span class="params">(WRITE_REG_NRF + EN_RXADDR, <span class="number">0</span>x01)</span>; </span><br><span class="line">    NRF24L01_Write_Reg<span class="params">(WRITE_REG_NRF + SETUP_RETR, <span class="number">0</span>x1a)</span>; </span><br><span class="line">    NRF24L01_Write_Reg<span class="params">(WRITE_REG_NRF + RF_CH, <span class="number">40</span>)</span>;    </span><br><span class="line">    NRF24L01_Write_Reg<span class="params">(WRITE_REG_NRF + RF_SETUP, <span class="number">0</span>x0f)</span>; </span><br><span class="line">    NRF24L01_Write_Reg<span class="params">(WRITE_REG_NRF + CONFIG, <span class="number">0</span>x0e)</span>; </span><br><span class="line">    NRF24L01_CE = <span class="number">1</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>正确的主函数</li>
-</ul>
-<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">while <span class="params">(NRF24L01_Check<span class="params">()</span>)</span><span class="comment">//如果这句放在设置发送模式的后面，就会把用来测试的发送地址设为真正的发送地址，覆盖掉正确的发送地址。从而导致通信失败。    </span></span><br><span class="line">&#123;</span><br><span class="line">    LED2_ON;</span><br><span class="line">    LED1_OFF;</span><br><span class="line">    printf<span class="params">(<span class="string">"no"</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line">NRF24L01_TX_Mode<span class="params">()</span>;</span><br></pre></td></tr></table></figure>
-
+        
+          <p class="article-more-link">
+            <a href="/2015/09/06/report-2015-09-06/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="cie7x08jg00034cnm9x9f3f9w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="cieb3tagd0003w8nmr9futhmi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -158,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/18/write/" data-id="cie7x08j000004cnmmfg7wr6w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/18/write/" data-id="cieb3tag60000w8nmmssfma50" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科研/">科研</a></li></ul>
@@ -205,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/07/hh/" data-id="cie7x08jg00054cnmaqxkqdib" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/07/hh/" data-id="cieb3tagg0005w8nm2rgrd2pl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生活，婚礼，朋友/">生活，婚礼，朋友</a></li></ul>
@@ -249,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/03/kenzi-s-first-post/" data-id="cie7x08jg00044cnmzhs1y8e0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/03/kenzi-s-first-post/" data-id="cieb3tage0004w8nml9qekeki" class="article-share-link">Share</a>
       
       
     </footer>
@@ -294,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/03/hello-world/" data-id="cie7x08jg000a4cnmi864wodh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/03/hello-world/" data-id="cieb3tagk000aw8nmao2aavvy" class="article-share-link">Share</a>
       
       
     </footer>
