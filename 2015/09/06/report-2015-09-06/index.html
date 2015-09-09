@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   
-  <title>report-2015-09-06 | kenziD</title>
+  <title>科研报告2 | kenziD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="报告
+  <meta name="description" content="FLY 竹蜻蜓
 2015-09-05今天找出了之前的一个bug，把遥控器的NRF24L01和小飞机的NRF24L01模块调通了。
 问题原因：
 
@@ -13,10 +13,10 @@
 
 问题分析：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="report-2015-09-06">
+<meta property="og:title" content="科研报告2">
 <meta property="og:url" content="http://yoursite.com/2015/09/06/report-2015-09-06/index.html">
 <meta property="og:site_name" content="kenziD">
-<meta property="og:description" content="报告
+<meta property="og:description" content="FLY 竹蜻蜓
 2015-09-05今天找出了之前的一个bug，把遥控器的NRF24L01和小飞机的NRF24L01模块调通了。
 问题原因：
 
@@ -25,10 +25,10 @@
 问题分析：">
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/warning.png">
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/elseif.png">
-<meta property="og:updated_time" content="2015-09-08T08:42:11.952Z">
+<meta property="og:updated_time" content="2015-09-09T07:37:39.409Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="report-2015-09-06">
-<meta name="twitter:description" content="报告
+<meta name="twitter:title" content="科研报告2">
+<meta name="twitter:description" content="FLY 竹蜻蜓
 2015-09-05今天找出了之前的一个bug，把遥控器的NRF24L01和小飞机的NRF24L01模块调通了。
 问题原因：
 
@@ -94,7 +94,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      report-2015-09-06
+      科研报告2
     </h1>
   
 
@@ -102,7 +102,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="报告">报告</h1><hr>
+        <h4 id="FLY_竹蜻蜓">FLY 竹蜻蜓</h4><hr>
 <h2 id="2015-09-05">2015-09-05</h2><p>今天找出了之前的一个bug，把遥控器的NRF24L01和小飞机的NRF24L01模块调通了。</p>
 <p>问题原因：</p>
 <blockquote>
@@ -138,13 +138,17 @@
 </blockquote>
 <p>把程序修改成了:<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">u8 <span class="title">KEY_scan</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> u8 key_up = <span class="number">0</span>;   </span><br><span class="line">    <span class="keyword">if</span>(MODE_KEY==<span class="number">0</span>||FUN_KEY==<span class="number">0</span>)</span><br><span class="line">    &#123;       </span><br><span class="line">        delay_ms(<span class="number">10</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(MODE_KEY==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(FUN_KEY==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//补全了情况</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>后运行正常，也没有警告。</p>
+<p>经过右上角男士提点：尽量少用else。程序修改成如下：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">u8 <span class="title">KEY_scan</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(MODE_KEY==<span class="number">0</span>||FUN_KEY==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        delay_ms(<span class="number">100</span>);</span><br><span class="line">        <span class="keyword">if</span>(MODE_KEY==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(FUN_KEY==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也没啥问题。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="cieb3tagd0003w8nmr9futhmi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="ciech0tvy00034cnmylkertht" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科研/">科研</a></li></ul>
+
     </footer>
   </div>
   
@@ -179,7 +183,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活，婚礼，朋友/">生活，婚礼，朋友</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科研/">科研</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活，婚礼，朋友/">生活，婚礼，朋友</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科研/">科研</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -188,7 +192,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/生活，婚礼，朋友/" style="font-size: 10px;">生活，婚礼，朋友</a> <a href="/tags/科研/" style="font-size: 10px;">科研</a>
+      <a href="/tags/生活，婚礼，朋友/" style="font-size: 10px;">生活，婚礼，朋友</a> <a href="/tags/科研/" style="font-size: 20px;">科研</a>
     </div>
   </div>
 
@@ -220,7 +224,7 @@
       <ul>
         
           <li>
-            <a href="/2015/09/06/report-2015-09-06/">report-2015-09-06</a>
+            <a href="/2015/09/06/report-2015-09-06/">科研报告2</a>
           </li>
         
           <li>
