@@ -3,24 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>About Git | kenziD</title>
+  <title>Scroll with Javascript VS CSS3 | kenziD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My first post
+  <meta name="description" content="实现点击button滑动到指定页面的特效。
+应用:
 
-recommend a website about learning git :廖雪峰的官方网站">
+点击导航栏滑动到指定的页面
+点击MORE就往下滑动一个页面
+点击回到顶部就滚回到首页">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About Git">
-<meta property="og:url" content="http://yoursite.com/2015/07/03/kenzi-s-first-post/index.html">
+<meta property="og:title" content="Scroll with Javascript VS CSS3">
+<meta property="og:url" content="http://yoursite.com/2015/10/02/scroll/index.html">
 <meta property="og:site_name" content="kenziD">
-<meta property="og:description" content="My first post
+<meta property="og:description" content="实现点击button滑动到指定页面的特效。
+应用:
 
-recommend a website about learning git :廖雪峰的官方网站">
+点击导航栏滑动到指定的页面
+点击MORE就往下滑动一个页面
+点击回到顶部就滚回到首页">
 <meta property="og:updated_time" content="2015-10-08T16:00:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Git">
-<meta name="twitter:description" content="My first post
+<meta name="twitter:title" content="Scroll with Javascript VS CSS3">
+<meta name="twitter:description" content="实现点击button滑动到指定页面的特效。
+应用:
 
-recommend a website about learning git :廖雪峰的官方网站">
+点击导航栏滑动到指定的页面
+点击MORE就往下滑动一个页面
+点击回到顶部就滚回到首页">
   
     <link rel="alternative" href="/atom.xml" title="kenziD" type="application/atom+xml">
   
@@ -70,10 +79,10 @@ recommend a website about learning git :廖雪峰的官方网站">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-kenzi-s-first-post" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-scroll" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/07/03/kenzi-s-first-post/" class="article-date">
-  <time datetime="2015-07-03T02:05:36.000Z" itemprop="datePublished">2015-07-03</time>
+    <a href="/2015/10/02/scroll/" class="article-date">
+  <time datetime="2015-10-01T16:43:04.000Z" itemprop="datePublished">2015-10-02</time>
 </a>
     
   </div>
@@ -84,7 +93,7 @@ recommend a website about learning git :廖雪峰的官方网站">
         
   
     <h1 class="article-title" itemprop="name">
-      About Git
+      Scroll with Javascript VS CSS3
     </h1>
   
 
@@ -92,15 +101,42 @@ recommend a website about learning git :廖雪峰的官方网站">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="My_first_post">My first post</h3><hr>
+        <p>实现点击button滑动到指定页面的特效。</p>
+<p>应用:</p>
+<ul>
+<li>点击导航栏滑动到指定的页面</li>
+<li>点击MORE就往下滑动一个页面</li>
+<li>点击<em>回到顶部</em>就滚回到首页</li>
+</ul>
+<a id="more"></a>
+<p>这里分别用</p>
+<ul>
+<li><p>Javascript：</p>
+<ul>
+<li><p>window.scrollBy()控制滚动条实现<br><a href="https://jsfiddle.net/g1760uno/" target="_blank" rel="external">代码+Demo</a></p>
 <blockquote>
-<p>recommend a website about learning git :<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的官方网站</a></p>
+<p>缺点：感觉不够顺滑流畅且没有动画特效<br>如果有大背景图片，就不够流畅了。更别提fixed。</p>
 </blockquote>
+</li>
+<li><p>Jquery库里的.animate实现<br><a href="https://jsfiddle.net/yugko0c6/" target="_blank" rel="external">代码+Demo</a></p>
+<blockquote>
+<p>优点：相对顺滑流畅 且有动画特效<br>缺点：如果有大背景图片，就不够流畅了。更别提fixed。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>CSS3里的transition：<br><a href="https://jsfiddle.net/wk7e4zep/" target="_blank" rel="external">代码+Demo</a></p>
+<blockquote>
+<p>优点：非常顺滑流畅！有动画特效。即使是有大背景图片。<br>缺点：滚动条失效。因为是使用tranlateY使其整体上移下移，和滚动条无关。当 然也就无法实现fixed效果<br>其实这里的实现方法，感觉不完美。<br>代码中多写了两个id分别为page_1和page_2的div，来对应a标签中的href，只是为了能在触发target的时候，能让后面的所有为wrap类的容器一起执行transform这样page1与page2才不会断层。<br>我认为更好的解决方式是，不要另起id名，直接就用page1 page2,然后在<br>article外面套一个#main的div，触发page1和page2时能选择父元素#main使其整体上升下降。但是CSS3里貌似没有父级元素选择器，有了貌似浏览器也米有支持。具体可以google.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3种实现方式一起比较:Demo">3种实现方式一起比较:<a href="https://jsfiddle.net/a4aoshp9/" target="_blank" rel="external">Demo</a></h2><p>这里再记录一下关于Javascript里的原生onclick()和JQuery里的.click(funtciton(){}).我的代码里都用的是onclick，不过对比会发现，使用.click更流畅，具体比较请看：<a href="http://stackoverflow.com/questions/12627443/jquery-click-vs-onclick" target="_blank" rel="external">jQuery.click() vs onClick</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/07/03/kenzi-s-first-post/" data-id="cifnoe16b000j9snmhwzt5zw7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/02/scroll/" data-id="cifnoe161000b9snmct3l4ewg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -109,19 +145,19 @@ recommend a website about learning git :廖雪峰的官方网站">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/07/hh/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/03/hexo-diy/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          参加妍妍婚礼的流水账
+          Hexo-DIY
         
       </div>
     </a>
   
   
-    <a href="/2015/07/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/09/19/css-learning/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">css button host style</div>
     </a>
   
 </nav>
