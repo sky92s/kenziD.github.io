@@ -43,7 +43,7 @@ input {
 height: 30px;
 width: 150px;
 }">
-<meta property="og:updated_time" content="2015-10-12T13:02:07.724Z">
+<meta property="og:updated_time" content="2015-10-13T02:36:48.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="制作input下拉菜单">
 <meta name="twitter:description" content="Demo画出输入框和图标
@@ -184,7 +184,6 @@ width: 150px;
 position:absolute;
 display:none;
         border:1px solid #e6e8e9;
-
         width: 150px;
         background: white;
           margin-left: -0.5px;
@@ -222,7 +221,7 @@ display:none;
 </style>
 
 
-<h4 id="消除两个元素之间的空格">消除两个元素之间的空格</h4><p>一般情况下，写html时都是有自动换行的：就像这样<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">input</span> id=<span class="string">"input-area"</span> type=<span class="string">'text'</span> placeholder=<span class="string">"输入你想搜索的内容"</span> &gt;</span><br><span class="line">&lt;<span class="tag">input</span> id=<span class="string">"icon"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="消除两个元素之间的空格">消除两个元素之间的空格</h4><p>一般情况下，写html时都是有自动换行的：就像这样<br><a id="more"></a><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">input</span> id=<span class="string">"input-area"</span> type=<span class="string">'text'</span> placeholder=<span class="string">"输入你想搜索的内容"</span> &gt;</span><br><span class="line">&lt;<span class="tag">input</span> id=<span class="string">"icon"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
 <p>CSS:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">* <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value">border-box</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">input</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="id">#input-area</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#e6e8e9</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span> <span class="number">10px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">150px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="id">#icon</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="function">url</span>(http://ww4.sinaimg.cn/large/<span class="number">74311666</span>jw1ewyg87xugqj2074074wel.jpg) no-repeat</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-size</span>:<span class="value"> contain</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>这时出来的效果是：</p>
 <p><input id="input-area" type="text" placeholder="输入你想搜索的内容"></p>
@@ -261,7 +260,7 @@ display:none;
  --><li class="list-menu ">javascript课程</li><!-- 
  --><li class="list-menu ">linux课程</li><!-- 
  --><li class="list-menu ">R课程</li><!-- 
- --><li class="list-menu ">C++课程</li></ul></p>
+ --><li class="list-menu ">C++课程</li><br> </ul></p>
 <p>顺便这里隆重推出absolute的用法，你会发现我的下拉菜单是覆盖在页面上的，如何实现的这个效果呢？直接在#menu中加上position:absolute属性即可，且父元素不要加position：relative.好神奇！其实我这篇文章也是根据这个课程引出的：<a href="http://www.imooc.com/video/4462" target="_blank" rel="external">absolute深入理解</a></p>
 <h2 id="鼠标选择下拉菜单选项填入input框内">鼠标选择下拉菜单选项填入input框内</h2><p>鼠标点击li标签的内容，返回其文本：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".list-menu"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(e.target.innerHTML);</span><br></pre></td></tr></table></figure></p>
 <p>其中e.target.innerHTML就是其文本。</p>
@@ -275,12 +274,12 @@ display:none;
  --><li class="final-list-menu">javascript课程</li><!-- 
  --><li class="final-list-menu">linux课程</li><!-- 
  --><li class="final-list-menu">R课程</li><!-- 
- --><li class="final-list-menu">C++课程</li><br> <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script></ul></p>
-<script type="text/javascript" src="/js/list-menu.js"></script>
+ --><li class="final-list-menu">C++课程</li><br> </ul></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/12/list-menu/" data-id="cifnoe16b000g9snm4eflo0fj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/12/list-menu/" data-id="cifnyg008000ge0nmc7mja069" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -338,6 +337,7 @@ display:none;
       </div>
       <footer id="footer">
   
+  <script src="/list-menu.js" type="text/javascript"></script>
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2015 KenziD<br>

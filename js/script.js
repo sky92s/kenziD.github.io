@@ -135,3 +135,28 @@
     $container.removeClass('mobile-nav-on');
   });
 })(jQuery);
+
+function handler( event ) {
+  var target = $( event.target );
+ 
+  if ( target.is( $("#last-input-area"))  ) {
+
+    $("#last-menu").show();
+    return
+  }
+    if ( target.is( $("#final-input-area"))  ) {
+    $("#final-menu").show();
+    return
+  }
+  else{
+    $("#last-menu").hide();
+     $("#final-menu").hide();
+     return
+  }
+};
+$("html").click(handler);
+
+$(".final-list-menu").click(function(e){
+console.log(e.target.innerHTML);
+ document.getElementById("final-input-area").value = e.target.innerHTML;
+});
