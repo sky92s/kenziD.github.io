@@ -90,24 +90,15 @@
         <p>经常遇到本地文件已经删了,然后执行git add .</p>
 <p>再git commit ,git push 。远程仓库上那些删掉的文件还是在。</p>
 <p>因为git add不能识别删除的文件。git rm才可以。</p>
-<p>正确的做法是：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">rm</span> folder_name</span><br><span class="line">git commit -<span class="keyword">m</span> <span class="string">"xxx"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
-<h1 id="rm_和_git_rm_的区别">rm 和 git rm 的区别</h1><p>rm是在本地删除它，git rm 是在暂存区删除它</p>
-<p>如果只执行了rm，本地是删除掉了，用git status 查看会发现它提示你</p>
-<p><img src="http://7xk7fp.com1.z0.glb.clouddn.com/git.png" alt=""><br>用git rm 来更新等一下上传的东西。也就是说如果只执行了rm，并没有执行git rm然后就直接commit ，工作区还是会有你删掉的那个文件。</p>
-<p>如果直接一上来就用git rm删除了文件，本地文件会被删除，暂存区也会删除，所以就可以直接提交了。</p>
-<h1 id="git_rm_和_git_rm_—cached">git rm 和 git rm —cached</h1><p>这个 —cached选项允许你把文件保留在你的硬盘上.常见情况是有一些配置文件或者ide生成的工程文件你不想传到远程仓库，但又很重要不能在本地删除掉。<br>使用git rm —cached file_name 就可以使这个文件不被git版本控制所追踪。</p>
-<p>或者像上一个例子中使用了rm 就直接提交了，本地已经没有了这个文件，但是远程仓库上还存在，只要使用it rm —cached file_name(或者git rm file_name都可以,这时候两者结果一样)就可以把在暂存区中的file删掉，commit 后再push,远程仓库上应该就删掉了。</p>
-<h1 id="总结：">总结：</h1><ul>
-<li><code>rm</code>只能删除本地文件</li>
-<li><code>git rm</code>不仅删了本地文件，也删了暂存区文件</li>
-<li><code>git rm --cached</code> 只删除了暂存区文件</li>
-</ul>
-<h1 id="实验过程">实验过程</h1><p><img src="http://7xk7fp.com1.z0.glb.clouddn.com/rma.png" alt=""><br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/gitrma.png" alt=""><br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/rmb.png" alt=""><br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/gitrmcacheb.png" alt=""></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2015/11/16/delete-remote-repository-folder/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/16/delete-remote-repository-folder/" data-id="cih1cjfll000s8onmqmh53pb1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/16/delete-remote-repository-folder/" data-id="cih1m4vc4000sysnmjwv2j7ie" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -152,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/19/circle/" data-id="cih1cjfls000x8onmhhu7erwe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/19/circle/" data-id="cih1m4vc4000xysnmisw508ac" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -190,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/16/center-image/" data-id="cih1cjfju00008onm730gidd9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/16/center-image/" data-id="cih1m4vat0000ysnm54ncgk0i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -318,7 +309,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/12/list-menu/" data-id="cih1cjfl7000f8onm6odt5ofh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/12/list-menu/" data-id="cih1m4vbo000fysnmxvtx1eto" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -363,7 +354,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/08/min-height-1/" data-id="cih1cjfl5000c8onm9eol6n1j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/08/min-height-1/" data-id="cih1m4vbo000cysnmobb1gdpj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -404,7 +395,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/05/gif/" data-id="cih1cjflj000r8onmqb7u8tv5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/05/gif/" data-id="cih1m4vbo000rysnmgwfjlt5w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -447,7 +438,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/03/hexo-diy/" data-id="cih1cjfle000n8onmazlhlz7o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/03/hexo-diy/" data-id="cih1m4vbo000nysnm0wkez549" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -496,7 +487,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/02/scroll/" data-id="cih1cjfl000098onmxnmha1x3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/02/scroll/" data-id="cih1m4vb90009ysnm0r7eevl6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -539,7 +530,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/19/css-learning/" data-id="cih1cjflq000v8onmrnrzyhej" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/19/css-learning/" data-id="cih1m4vc4000vysnmt9jbef3z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -588,7 +579,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="cih1cjfl3000a8onm0kqha9pd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="cih1m4vb9000aysnme4cok7a5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科研/">科研</a></li></ul>
