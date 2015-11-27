@@ -3,18 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>log analyze | kenziD</title>
+  <title>Pixhawk log日志分析 by MissionPlanner | kenziD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="log日志分析从上电到开始飞行，说明等待其初始化时间，包括飞控初始化，GPS锁星，错误解除等。
-从CTUN:ThrIn和ThrOut的曲线可以详细看出操作手的操作过程和飞行情况。第一次第二次的自稳飞行都没有太大的问题。
-仔细观察高度和输入输出的油门曲线：设定为定高模式起飞的时候，遥控油门上推，但是四轴油门并没有跟踪遥控油门，导致四轴飞不起来.A点时刻，飞机突然升到1.6米高，所以操作手快速减少了油">
+  <meta name="description" content="从上电到开始飞行，说明等待其初始化时间，包括飞控初始化，GPS锁星，错误解除等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="log analyze">
+<meta property="og:title" content="Pixhawk log日志分析 by MissionPlanner">
 <meta property="og:url" content="http://yoursite.com/2015/11/24/center-image/index.html">
 <meta property="og:site_name" content="kenziD">
-<meta property="og:description" content="log日志分析从上电到开始飞行，说明等待其初始化时间，包括飞控初始化，GPS锁星，错误解除等。
-从CTUN:ThrIn和ThrOut的曲线可以详细看出操作手的操作过程和飞行情况。第一次第二次的自稳飞行都没有太大的问题。
-仔细观察高度和输入输出的油门曲线：设定为定高模式起飞的时候，遥控油门上推，但是四轴油门并没有跟踪遥控油门，导致四轴飞不起来.A点时刻，飞机突然升到1.6米高，所以操作手快速减少了油">
+<meta property="og:description" content="从上电到开始飞行，说明等待其初始化时间，包括飞控初始化，GPS锁星，错误解除等。">
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/powerOn.png">
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/start.png">
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/ThrInvsThrOut.png">
@@ -22,12 +18,10 @@
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/accCompare.png">
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/vib.png">
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/Image%206.jpg">
-<meta property="og:updated_time" content="2015-11-26T08:34:11.239Z">
+<meta property="og:updated_time" content="2015-11-26T08:40:21.516Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="log analyze">
-<meta name="twitter:description" content="log日志分析从上电到开始飞行，说明等待其初始化时间，包括飞控初始化，GPS锁星，错误解除等。
-从CTUN:ThrIn和ThrOut的曲线可以详细看出操作手的操作过程和飞行情况。第一次第二次的自稳飞行都没有太大的问题。
-仔细观察高度和输入输出的油门曲线：设定为定高模式起飞的时候，遥控油门上推，但是四轴油门并没有跟踪遥控油门，导致四轴飞不起来.A点时刻，飞机突然升到1.6米高，所以操作手快速减少了油">
+<meta name="twitter:title" content="Pixhawk log日志分析 by MissionPlanner">
+<meta name="twitter:description" content="从上电到开始飞行，说明等待其初始化时间，包括飞控初始化，GPS锁星，错误解除等。">
   
     <link rel="alternative" href="/atom.xml" title="kenziD" type="application/atom+xml">
   
@@ -91,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      log analyze
+      Pixhawk log日志分析 by MissionPlanner
     </h1>
   
 
@@ -99,7 +93,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="log日志分析">log日志分析</h1><p><img src="http://7xk7fp.com1.z0.glb.clouddn.com/powerOn.png" alt=""><br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/start.png" alt=""><br>从上电到开始飞行，说明等待其初始化时间，包括飞控初始化，GPS锁星，错误解除等。</p>
+        <p><img src="http://7xk7fp.com1.z0.glb.clouddn.com/powerOn.png" alt=""><br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/start.png" alt=""><br>从上电到开始飞行，说明等待其初始化时间，包括飞控初始化，GPS锁星，错误解除等。</p>
+<a id="more"></a>
 <p>从CTUN:ThrIn和ThrOut的曲线可以详细看出操作手的操作过程和飞行情况。<br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/ThrInvsThrOut.png" alt=""><br>第一次第二次的自稳飞行都没有太大的问题。</p>
 <p>仔细观察高度和输入输出的油门曲线：<br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/heightCompare.png" alt=""><br>设定为定高模式起飞的时候，遥控油门上推，但是四轴油门并没有跟踪遥控油门，导致四轴飞不起来.<br>A点时刻，飞机突然升到1.6米高，所以操作手快速减少了油门，飞机掉落一点，然后又稍稍加大油门，飞机油门输出开始不受控制，表现为飞机抖动，切换成自稳模式后，飞机油门重新恢复跟踪遥控油门，所以猜想原因是定高模式下油门跟踪不灵敏。<br>下一个时刻的真实情况是飞机撞到了墙壁，浆被摔断。所以飞机开始失去平衡。并掉落下来。<br>从加速度计的Roll的情况可以看出：<br><img src="http://7xk7fp.com1.z0.glb.clouddn.com/accCompare.png" alt=""><br>初步分析为，定高模式的跟踪不够灵敏，或者电机导致。</p>
 <blockquote>
@@ -143,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/24/center-image/" data-id="cihfznjlq00000wnmn5y5bp7a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/24/center-image/" data-id="cihh346qm0000c4nmys2jpz55" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>
