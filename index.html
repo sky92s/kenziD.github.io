@@ -65,6 +65,126 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-python-log" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/03/python-log/" class="article-date">
+  <time datetime="2015-12-03T11:15:05.000Z" itemprop="datePublished">2015-12-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/03/python-log/">转载</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Stop_Using_“print”_for_Debugging:_A_5_Minute_Quickstart_Guide_to_Python’s_logging_Module"><a href="http://inventwithpython.com/blog/2012/04/06/stop-using-print-for-debugging-a-5-minute-quickstart-guide-to-pythons-logging-module/" target="_blank" rel="external">Stop Using “print” for Debugging: A 5 Minute Quickstart Guide to Python’s logging Module</a></h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/12/03/python-log/" data-id="cihq5gbh5000et0nm427qhmv9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-analyze-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/30/analyze-1/" class="article-date">
+  <time datetime="2015-11-30T02:40:05.000Z" itemprop="datePublished">2015-11-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/30/analyze-1/">Pixhawk Source Code Analyze(1)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Makefile">Makefile</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># top level makefile to build SITL for primary vehicle targets. </span></span><br><span class="line"><span class="comment"># Useful for static analysis tools</span></span><br><span class="line"></span><br><span class="line">all: sitl</span><br><span class="line"></span><br><span class="line">sitl: TARGET=sitl</span><br><span class="line">sitl: plane copter rover antennatracker</span><br><span class="line"></span><br><span class="line">linux: TARGET=linux</span><br><span class="line">linux: plane copter rover antennatracker</span><br><span class="line"></span><br><span class="line">clean: TARGET=clean</span><br><span class="line">clean: plane copter rover antennatracker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 声明后面的这些命令是伪目标</span></span><br><span class="line"><span class="phony"><span class="keyword">.PHONY</span>: plane copter rover antennatracker</span></span><br><span class="line"></span><br><span class="line"><span class="title">plane:</span></span><br><span class="line">	<span class="variable">$(MAKE)</span> -C ArduPlane <span class="variable">$(TARGET)</span></span><br><span class="line"></span><br><span class="line"><span class="title">copter:</span></span><br><span class="line">	<span class="variable">$(MAKE)</span> -C ArduCopter <span class="variable">$(TARGET)</span></span><br><span class="line"></span><br><span class="line"><span class="title">rover:</span></span><br><span class="line">	<span class="variable">$(MAKE)</span> -C APMrover2 <span class="variable">$(TARGET)</span></span><br><span class="line"></span><br><span class="line"><span class="title">antennatracker:</span></span><br><span class="line">	<span class="variable">$(MAKE)</span> -C AntennaTracker <span class="variable">$(TARGET)</span></span><br></pre></td></tr></table></figure>
+<p>参考:<a href="http://www.ruanyifeng.com/blog/2015/02/make.html" target="_blank" rel="external">Make 命令教程</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/30/analyze-1/" data-id="cihq5gba70000t0nm3zjnw21p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-pixhawk编译环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/27/pixhawk编译环境搭建/" class="article-date">
+  <time datetime="2015-11-27T03:04:26.000Z" itemprop="datePublished">2015-11-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/27/pixhawk编译环境搭建/">pixhawk编译环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考:<a href="http://bbs.loveuav.com/thread-499-2-1.html">福利来了，关于在win7下编译pixhawk源码的教程</a><br>根据这个教程做下来，执行<figure class="highlight"><figcaption><span>px4-v2```的时候总是提示错误:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```&#10;error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&#60;path&#62;</span><br></pre></td></tr></table></figure></p>
+<p>出现这个错误的原因是文件路径里含有空格，把所有空格去掉了就好了。<br>MINGWIN 在win中遇到空格会有误解。</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/11/27/pixhawk编译环境搭建/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/27/pixhawk编译环境搭建/" data-id="cihq5gbh5000ft0nm4383p8y3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-center-image" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/11/24/center-image/" class="article-date">
@@ -96,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/24/center-image/" data-id="cihh346qm0000c4nmys2jpz55" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/24/center-image/" data-id="cihq5gbiv0014t0nmv8627o0h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>
@@ -141,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/16/delete-remote-repository-folder/" data-id="cihh346rq000uc4nmp8fpdf5w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/16/delete-remote-repository-folder/" data-id="cihq5gbi0000xt0nmezm0gv0f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -186,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/19/circle/" data-id="cihh346ru000zc4nmlpk7mf58" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/19/circle/" data-id="cihq5gbiv0012t0nma3wu0ab4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -316,7 +436,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/12/list-menu/" data-id="cihh346rd000hc4nm36vcm7vr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/12/list-menu/" data-id="cihq5gbhk000kt0nmgjy3kmz2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -361,7 +481,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/08/min-height-1/" data-id="cihh346rb000ec4nmagfclawe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/08/min-height-1/" data-id="cihq5gbh5000ht0nmnuy3uuf3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -402,7 +522,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/05/gif/" data-id="cihh346rp000tc4nm6uqo5cwd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/05/gif/" data-id="cihq5gbi0000wt0nmz80uq2hl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -445,151 +565,10 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/03/hexo-diy/" data-id="cihh346ri000pc4nmmra1kucx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/03/hexo-diy/" data-id="cihq5gbhk000st0nm6bkux7a9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-scroll" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/02/scroll/" class="article-date">
-  <time datetime="2015-10-01T16:43:04.000Z" itemprop="datePublished">2015-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/02/scroll/">Scroll with Javascript VS CSS3</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>实现点击button滑动到指定页面的特效。</p>
-<p>应用:</p>
-<ul>
-<li>点击导航栏滑动到指定的页面</li>
-<li>点击MORE就往下滑动一个页面</li>
-<li>点击<em>回到顶部</em>就滚回到首页</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/02/scroll/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/02/scroll/" data-id="cihh346r7000bc4nmizo0b1mt" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-css-learning" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/09/19/css-learning/" class="article-date">
-  <time datetime="2015-09-19T06:15:19.000Z" itemprop="datePublished">2015-09-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/19/css-learning/">css button host style</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>灵感来源于:<a href="http://workdiary.de/">Michael Schmid</a></p>
-<p>下面就利用CSS3中的transition 和 ::after ::before来制作。</p>
-<h2 id="效果展示">效果展示</h2>
-        
-          <p class="article-more-link">
-            <a href="/2015/09/19/css-learning/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/19/css-learning/" data-id="cihh346rs000xc4nmoarktx2i" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-report-2015-09-06" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/09/06/report-2015-09-06/" class="article-date">
-  <time datetime="2015-09-06T03:02:09.000Z" itemprop="datePublished">2015-09-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/06/report-2015-09-06/">科研报告2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="FLY_竹蜻蜓">FLY 竹蜻蜓</h4><hr>
-<h2 id="2015-09-05">2015-09-05</h2><p>今天找出了之前的一个bug，把遥控器的NRF24L01和小飞机的NRF24L01模块调通了。</p>
-<p>问题原因：</p>
-<blockquote>
-<p>把NRF24L01_Check()检测NRF24L01是否在位的程序放在了NRF24L01_TX_Mode()设置为发送模式之后。</p>
-</blockquote>
-<p>问题分析：</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/09/06/report-2015-09-06/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/06/report-2015-09-06/" data-id="cihh346r9000cc4nmghxya4cy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科研/">科研</a></li></ul>
 
     </footer>
   </div>
@@ -620,7 +599,7 @@ display:none;
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixhawk/">pixhawk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活，婚礼，朋友/">生活，婚礼，朋友</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科研/">科研</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pixhawk/">pixhawk</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活，婚礼，朋友/">生活，婚礼，朋友</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科研/">科研</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -629,7 +608,7 @@ display:none;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pixhawk/" style="font-size: 10px;">pixhawk</a> <a href="/tags/生活，婚礼，朋友/" style="font-size: 15px;">生活，婚礼，朋友</a> <a href="/tags/科研/" style="font-size: 15px;">科研</a>
+      <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/pixhawk/" style="font-size: 16.67px;">pixhawk</a> <a href="/tags/生活，婚礼，朋友/" style="font-size: 13.33px;">生活，婚礼，朋友</a> <a href="/tags/科研/" style="font-size: 13.33px;">科研</a>
     </div>
   </div>
 
