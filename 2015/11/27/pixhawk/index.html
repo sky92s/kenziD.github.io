@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>pixhawk编译环境搭建 | kenziD</title>
+  <title>编译APM源码基于pixhawk硬件 | kenziD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考:福利来了，关于在win7下编译pixhawk源码的教程根据这个教程做下来，执行px4-v2```的时候总是提示错误:1```&amp;#10;error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&amp;#60;path&amp;#62;
-出现这个错误的原因是文件路径里含有空格，">
+  <meta name="description" content="参考:福利来了，关于在win7下编译pixhawk源码的教程根据这个教程做下来，执行make px4-v2的时候总是提示错误:1error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&amp;lt;path&amp;gt;
+出现这个错误的原因是文件路径里含有空格，把所有空格去掉了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pixhawk编译环境搭建">
-<meta property="og:url" content="http://yoursite.com/2015/11/27/pixhawk编译环境搭建/index.html">
+<meta property="og:title" content="编译APM源码基于pixhawk硬件">
+<meta property="og:url" content="http://yoursite.com/2015/11/27/pixhawk/index.html">
 <meta property="og:site_name" content="kenziD">
-<meta property="og:description" content="参考:福利来了，关于在win7下编译pixhawk源码的教程根据这个教程做下来，执行px4-v2```的时候总是提示错误:1```&amp;#10;error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&amp;#60;path&amp;#62;
-出现这个错误的原因是文件路径里含有空格，">
-<meta property="og:updated_time" content="2015-12-03T11:30:37.426Z">
+<meta property="og:description" content="参考:福利来了，关于在win7下编译pixhawk源码的教程根据这个教程做下来，执行make px4-v2的时候总是提示错误:1error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&amp;lt;path&amp;gt;
+出现这个错误的原因是文件路径里含有空格，把所有空格去掉了">
+<meta property="og:updated_time" content="2015-12-07T08:23:44.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pixhawk编译环境搭建">
-<meta name="twitter:description" content="参考:福利来了，关于在win7下编译pixhawk源码的教程根据这个教程做下来，执行px4-v2```的时候总是提示错误:1```&amp;#10;error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&amp;#60;path&amp;#62;
-出现这个错误的原因是文件路径里含有空格，">
+<meta name="twitter:title" content="编译APM源码基于pixhawk硬件">
+<meta name="twitter:description" content="参考:福利来了，关于在win7下编译pixhawk源码的教程根据这个教程做下来，执行make px4-v2的时候总是提示错误:1error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&amp;lt;path&amp;gt;
+出现这个错误的原因是文件路径里含有空格，把所有空格去掉了">
   
     <link rel="alternative" href="/atom.xml" title="kenziD" type="application/atom+xml">
   
@@ -67,9 +67,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-pixhawk编译环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-pixhawk" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/11/27/pixhawk编译环境搭建/" class="article-date">
+    <a href="/2015/11/27/pixhawk/" class="article-date">
   <time datetime="2015-11-27T03:04:26.000Z" itemprop="datePublished">2015-11-27</time>
 </a>
     
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      pixhawk编译环境搭建
+      编译APM源码基于pixhawk硬件
     </h1>
   
 
@@ -89,7 +89,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考:<a href="http://bbs.loveuav.com/thread-499-2-1.html" target="_blank" rel="external">福利来了，关于在win7下编译pixhawk源码的教程</a><br>根据这个教程做下来，执行<figure class="highlight"><figcaption><span>px4-v2```的时候总是提示错误:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```&#10;error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&#60;path&#62;</span><br></pre></td></tr></table></figure></p>
+        <p>参考:<a href="http://bbs.loveuav.com/thread-499-2-1.html" target="_blank" rel="external">福利来了，关于在win7下编译pixhawk源码的教程</a><br>根据这个教程做下来，执行make px4-v2的时候总是提示错误:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">error</span>:cannot determine sketchbook location - please specify <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> commandline <span class="keyword">with</span> SKETCHBOOK=&lt;path&gt;</span><br></pre></td></tr></table></figure></p>
 <p>出现这个错误的原因是文件路径里含有空格，把所有空格去掉了就好了。<br>MINGWIN 在win中遇到空格会有误解。</p>
 <a id="more"></a>
 <p>比如<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="keyword">E</span>:/<span class="keyword">Program</span>\ Files</span><br></pre></td></tr></table></figure></p>
@@ -104,7 +104,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/27/pixhawk编译环境搭建/" data-id="cihvflk0a000hawnm5xjerddq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/27/pixhawk/" data-id="cihvox2bt0000ocnm9xtw77y6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>

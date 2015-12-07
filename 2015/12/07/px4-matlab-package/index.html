@@ -38,7 +38,7 @@
 
 然后你的simul">
 <meta property="og:image" content="http://7xk7fp.com1.z0.glb.clouddn.com/simulink.png">
-<meta property="og:updated_time" content="2015-12-07T04:02:59.661Z">
+<meta property="og:updated_time" content="2015-12-07T08:20:38.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="px4 matlab package">
 <meta name="twitter:description" content="Pixhawk PX4 Support from Embedded Coder这个安装包貌似只支持matlab 2014b 或者 2015a 64位
@@ -141,11 +141,18 @@
 </ul>
 <p>然后你的simulink里会出现<img src="http://7xk7fp.com1.z0.glb.clouddn.com/simulink.png" alt=""></p>
 <p>详细教程下载<a href="http://www.mathworks.com/hardware-support/files/dds-blockset-support-package-user-guide.pdf" target="_blank" rel="external">官方文档</a></p>
+<p>使用之前应该要有源码。并且应该被初次编译过。</p>
+<p>可以从git上直接clone：<a href="https://github.com/PX4" target="_blank" rel="external">Firmware</a></p>
+<p>也可以直接从PX4 Toolchain里有一个选项：PX4 Software Download</p>
+<p>点击这个后他会自动帮你从Github上下载Firmware Bootloader libopencm3三个文件夹到你安装PX4 Toolchain(比如D:/PX4)的路径里。</p>
+<p>下载完成后要用PX4 Console进行编译</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">make</span> archives</span><br><span class="line"><span class="keyword">make</span> <span class="keyword">all</span></span><br></pre></td></tr></table></figure>
+<p>all 目标在我上一篇的makefile解析里有。可以看出分别都是那些任务<br>第一次编译要久一点。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/07/px4-matlab-package/" data-id="cihvflk0a000fawnmb7kkzh2c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/12/07/px4-matlab-package/" data-id="cihvotszf000f08nmct5gxcb7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>

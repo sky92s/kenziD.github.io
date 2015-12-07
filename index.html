@@ -102,11 +102,18 @@
 </ul>
 <p>然后你的simulink里会出现<img src="http://7xk7fp.com1.z0.glb.clouddn.com/simulink.png" alt=""></p>
 <p>详细教程下载<a href="http://www.mathworks.com/hardware-support/files/dds-blockset-support-package-user-guide.pdf" target="_blank" rel="external">官方文档</a></p>
+<p>使用之前应该要有源码。并且应该被初次编译过。</p>
+<p>可以从git上直接clone：<a href="https://github.com/PX4" target="_blank" rel="external">Firmware</a></p>
+<p>也可以直接从PX4 Toolchain里有一个选项：PX4 Software Download</p>
+<p>点击这个后他会自动帮你从Github上下载Firmware Bootloader libopencm3三个文件夹到你安装PX4 Toolchain(比如D:/PX4)的路径里。</p>
+<p>下载完成后要用PX4 Console进行编译</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">make</span> archives</span><br><span class="line"><span class="keyword">make</span> <span class="keyword">all</span></span><br></pre></td></tr></table></figure>
+<p>all 目标在我上一篇的makefile解析里有。可以看出分别都是那些任务<br>第一次编译要久一点。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/07/px4-matlab-package/" data-id="cihvflk0a000fawnmb7kkzh2c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/12/07/px4-matlab-package/" data-id="cihvotszf000f08nmct5gxcb7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>
@@ -144,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/03/python-log/" data-id="cihvflk0a000eawnmsp5b3hmi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/12/03/python-log/" data-id="cihvotszf000e08nmw3n4487r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/30/analyze-1/" data-id="cihvfljzf0000awnm0xzzk30f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/30/analyze-1/" data-id="cihvotssx000008nmd885l3zi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>
@@ -194,9 +201,9 @@
 
 
   
-    <article id="post-pixhawk编译环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-pixhawk" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/11/27/pixhawk编译环境搭建/" class="article-date">
+    <a href="/2015/11/27/pixhawk/" class="article-date">
   <time datetime="2015-11-27T03:04:26.000Z" itemprop="datePublished">2015-11-27</time>
 </a>
     
@@ -208,7 +215,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/pixhawk编译环境搭建/">pixhawk编译环境搭建</a>
+      <a class="article-title" href="/2015/11/27/pixhawk/">编译APM源码基于pixhawk硬件</a>
     </h1>
   
 
@@ -216,17 +223,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>参考:<a href="http://bbs.loveuav.com/thread-499-2-1.html">福利来了，关于在win7下编译pixhawk源码的教程</a><br>根据这个教程做下来，执行<figure class="highlight"><figcaption><span>px4-v2```的时候总是提示错误:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```&#10;error:cannot determine sketchbook location - please specify on the commandline with SKETCHBOOK=&#60;path&#62;</span><br></pre></td></tr></table></figure></p>
+        <p>参考:<a href="http://bbs.loveuav.com/thread-499-2-1.html">福利来了，关于在win7下编译pixhawk源码的教程</a><br>根据这个教程做下来，执行make px4-v2的时候总是提示错误:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">error</span>:cannot determine sketchbook location - please specify <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> commandline <span class="keyword">with</span> SKETCHBOOK=&lt;path&gt;</span><br></pre></td></tr></table></figure></p>
 <p>出现这个错误的原因是文件路径里含有空格，把所有空格去掉了就好了。<br>MINGWIN 在win中遇到空格会有误解。</p>
         
           <p class="article-more-link">
-            <a href="/2015/11/27/pixhawk编译环境搭建/#more">Read More</a>
+            <a href="/2015/11/27/pixhawk/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/27/pixhawk编译环境搭建/" data-id="cihvflk0a000hawnm5xjerddq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/27/pixhawk/" data-id="cihvox2bt0000ocnm9xtw77y6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>
@@ -269,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/24/center-image/" data-id="cihvflk2g0016awnmj9kl4lu5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/24/center-image/" data-id="cihvott0a001608nmi1nrtska" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pixhawk/">pixhawk</a></li></ul>
@@ -314,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/16/delete-remote-repository-folder/" data-id="cihvflk15000zawnmcdg3k3ze" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/16/delete-remote-repository-folder/" data-id="cihvott0a000z08nm6xa1mffe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -359,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/19/circle/" data-id="cihvflk2g0014awnmd50bdl4j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/19/circle/" data-id="cihvott0a001408nmpn5909r2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -489,7 +496,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/12/list-menu/" data-id="cihvflk0p000mawnmwk3f0o3k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/12/list-menu/" data-id="cihvotszv000m08nmo67ef1da" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -534,7 +541,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/08/min-height-1/" data-id="cihvflk0p000jawnmekfx749k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/08/min-height-1/" data-id="cihvotszv000j08nmzuwq8zw6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -575,7 +582,7 @@ display:none;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/05/gif/" data-id="cihvflk15000yawnms8756moe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/05/gif/" data-id="cihvott0a000y08nmp9qy68pd" class="article-share-link">Share</a>
       
       
     </footer>
